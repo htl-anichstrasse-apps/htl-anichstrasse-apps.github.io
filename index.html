@@ -65,7 +65,6 @@
     Diese Informationen gelten für alle unter dem Account der HTL Anichstraße veröffentlichten Apps.
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
 <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
 
@@ -75,18 +74,21 @@
         qrWrapper.setAttribute("aria-label", "QR-Code für Store-Link");
         link.parentElement.appendChild(qrWrapper);
 
-        QRCode.toCanvas(link.href, {
-            width: 132,
-            margin: 1,
-            color: {
-                dark: "#003C8B",
-                light: "#FFFFFF"
-            }
-        }, function (error, canvas) {
-            if (!error) {
-                qrWrapper.appendChild(canvas);
-            }
+        var fallbackText = document.createElement("p");
+        fallbackText.className = "app-qr-fallback";
+        fallbackText.innerHTML = 'QR-Code konnte nicht geladen werden. <a href="' + link.href + '">Store-Link öffnen</a>.';
+        qrWrapper.appendChild(fallbackText);
+
+        var qrImage = document.createElement("img");
+        qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=132x132&margin=0&data=" + encodeURIComponent(link.href);
+        qrImage.alt = "QR-Code für den Store-Link";
+        qrImage.width = 132;
+        qrImage.height = 132;
+        qrImage.addEventListener("error", function () {
+            qrImage.remove();
+            fallbackText.classList.add("is-visible");
         });
+        qrWrapper.appendChild(qrImage);
     });
 </script>
 

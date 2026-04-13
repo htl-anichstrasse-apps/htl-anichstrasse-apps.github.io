@@ -5,7 +5,6 @@
     <title>Weiterleitung...</title>
     <script>
         (function() {
-            // 1. App-Datenbank: Hier einfach neue Apps hinzufügen
             const appDatabase = {
                 "htlinn-go": {
                     ios: "https://apps.apple.com/at/app/htlinn-go/id6760402891",
@@ -13,7 +12,7 @@
                 },
                 "stratos2026": {
                     ios: "https://apps.apple.com/app/id987654321",
-                    android: "https://play.google.com/store/apps/details?id=at.ac.htlinn.planer"
+                    android: "https://play.google.com/store/apps/details?id=at.ac.htlinn.stud.stratos2026"
                 },
                 "kantine": {
                     ios: "https://apps.apple.com/app/id555666777",
@@ -21,29 +20,40 @@
                 }
             };
 
-            // 2. Parameter aus der URL auslesen (z.B. ?app=wetter)
             const urlParams = new URLSearchParams(window.location.search);
             const appKey = urlParams.get('app');
             const fallbackUrl = "https://htl-anichstrasse-apps.github.io/";
 
-            // 3. Gerät erkennen
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             const isiOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
             const isAndroid = /android/i.test(userAgent);
+            const isMacOS = /Macintosh|Mac OS X/i.test(userAgent);
+            const isWindows = /Windows/i.test(userAgent);
+            const isLinuxLike = /Linux|X11|CrOS/i.test(userAgent);
 
-            // 4. Weiterleitungs-Logik
+            function getTargetUrl(targetApp) {
+                if (isiOS || isMacOS) {
+                    return targetApp.ios;
+                }
+
+                if (isAndroid || isWindows || isLinuxLike) {
+                    return targetApp.android;
+                }
+
+                return fallbackUrl;
+            }
+
             if (appKey && appDatabase[appKey]) {
                 const targetApp = appDatabase[appKey];
-                if (isiOS) {
-                    window.location.replace(targetApp.ios);
-                } else if (isAndroid) {
-                    window.location.replace(targetApp.android);
-                } else {
-                    // Desktop-Nutzer landen auf der Portfolio-Seite
-                    window.location.replace(fallbackUrl);
+                const targetUrl = getTargetUrl(targetApp);
+                const manualLink = document.getElementById("manual-redirect");
+
+                if (manualLink) {
+                    manualLink.href = targetUrl;
                 }
+
+                window.location.replace(targetUrl);
             } else {
-                // Wenn kein Parameter oder falsche App-ID angegeben wurde
                 window.location.replace(fallbackUrl);
             }
         })();
@@ -54,6 +64,6 @@
 </head>
 <body>
     <p>Leite zum App Store weiter...</p>
-    <p>Falls nichts passiert, klicken Sie bitte <a href="https://htl-anichstrasse-apps.github.io/">hier</a>.</p>
+    <p>Falls nichts passiert, klicken Sie bitte <a id="manual-redirect" href="https://htl-anichstrasse-apps.github.io/">hier</a>.</p>
 </body>
 </html>

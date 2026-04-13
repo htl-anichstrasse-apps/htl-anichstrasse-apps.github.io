@@ -147,3 +147,15 @@ a:hover {
 .app-qr img {
     display: block;
 }
+
+.app-qr-fallback {
+    display: none;
+    max-width: 132px;
+    font-size: 0.85em;
+    line-height: 1.4;
+    color: #666;
+}
+
+.app-qr-fallback.is-visible {
+    display: block;
+}
