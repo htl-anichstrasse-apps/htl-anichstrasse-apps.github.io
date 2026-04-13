@@ -73,6 +73,7 @@ a:hover {
 .site-logo {
     max-width: 200px;
     height: auto;
+    margin-bottom: 20px;
 }
 
 /* Burger menu */
@@ -117,11 +118,13 @@ a:hover {
     max-height: 0;
     transition: max-height 0.25s ease;
     border-bottom: 1px solid transparent;
+    margin-top: 0;
 }
 
 .main-nav.is-open {
     max-height: 200px;
     border-bottom-color: #eee;
+    margin-top: 12px;
     margin-bottom: 16px;
 }
 
