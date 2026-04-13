@@ -23,11 +23,17 @@
             <strong>HTLinn Go</strong><br>
             HTL Anichstraße – die offizielle Schul-App.
             <div class="badge-container">
-                <div class="badge-link-group">
-                    <a class="badge-link" href="https://htl-anichstrasse-apps.github.io/go.html?app=htlinn-go" data-qr="true" aria-label="HTLinn Go im Store öffnen">
+                <div class="badge-item">
+                    <a class="badge-link" href="https://apps.apple.com/at/app/htlinn-go/id6760402891" data-qr="true" data-store="apple" aria-label="HTLinn Go im Apple App Store öffnen">
                         <img class="badge-apple" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de?size=250x83" alt="Download on the App Store">
+                    </a>
+                    <div class="badge-qr-wrapper" id="qr-apple"></div>
+                </div>
+                <div class="badge-item">
+                    <a class="badge-link" href="https://play.google.com/store/apps/details?id=at.ac.htlinn.htl_go" data-qr="true" data-store="google" aria-label="HTLinn Go im Google Play Store öffnen">
                         <img class="badge-google" src="https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png" alt="Jetzt bei Google Play">
                     </a>
+                    <div class="badge-qr-wrapper" id="qr-google"></div>
                 </div>
             </div>
         </li>
@@ -69,26 +75,18 @@
     document.getElementById("current-year").textContent = new Date().getFullYear();
 
     document.querySelectorAll(".badge-link[data-qr='true']").forEach(function (link) {
-        var qrWrapper = document.createElement("div");
-        qrWrapper.className = "app-qr";
-        qrWrapper.setAttribute("aria-label", "QR-Code für Store-Link");
-        link.parentElement.appendChild(qrWrapper);
-
-        var fallbackText = document.createElement("p");
-        fallbackText.className = "app-qr-fallback";
-        fallbackText.innerHTML = 'QR-Code konnte nicht geladen werden. <a href="' + link.href + '">Store-Link öffnen</a>.';
-        qrWrapper.appendChild(fallbackText);
+        var qrSize = 104;
+        var store = link.getAttribute("data-store");
+        var qrContainer = document.getElementById("qr-" + store);
+        
+        if (!qrContainer) return;
 
         var qrImage = document.createElement("img");
-        qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=132x132&margin=0&data=" + encodeURIComponent(link.href);
-        qrImage.alt = "QR-Code für den Store-Link";
-        qrImage.width = 132;
-        qrImage.height = 132;
-        qrImage.addEventListener("error", function () {
-            qrImage.remove();
-            fallbackText.classList.add("is-visible");
-        });
-        qrWrapper.appendChild(qrImage);
+        qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=" + qrSize + "x" + qrSize + "&margin=0&data=" + encodeURIComponent(link.href);
+        qrImage.alt = "QR-Code für " + store + " Store";
+        qrImage.width = qrSize;
+        qrImage.height = qrSize;
+        qrContainer.appendChild(qrImage);
     });
 </script>
 
