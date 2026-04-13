@@ -79,6 +79,33 @@ a:hover {
     margin: 30px 0;
 }
 
+.app-name {
+    display: block;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #003C8B;
+    margin-bottom: 4px;
+}
+
+.app-badge-coming-soon {
+    display: inline-block;
+    font-size: 0.65em;
+    font-weight: 600;
+    color: #fff;
+    background: #888;
+    border-radius: 4px;
+    padding: 1px 6px;
+    vertical-align: middle;
+    margin-left: 6px;
+    position: relative;
+    top: -2px;
+}
+
+.app-description {
+    margin: 0 0 4px 0;
+    color: #444;
+}
+
 /* App badges */
 .app-list {
     list-style: none;
