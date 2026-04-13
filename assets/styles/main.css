@@ -164,3 +164,31 @@ a:hover {
     max-width: 124px;
 }
 
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+
+    .badge-container {
+        gap: 12px;
+    }
+
+    .badge-link {
+        height: 44px;
+    }
+
+    .badge-apple {
+        height: 36px;
+    }
+
+    .badge-google {
+        height: 46px;
+    }
+
+    .badge-qr-wrapper img {
+        width: 88px;
+        height: 88px;
+        max-width: 88px;
+    }
+}
+
