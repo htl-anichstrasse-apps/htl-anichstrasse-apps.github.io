@@ -88,6 +88,8 @@ a:hover {
     cursor: pointer;
     padding: 0;
     flex-shrink: 0;
+    position: relative;
+    top: -5px;
 }
 
 .burger-btn span {
