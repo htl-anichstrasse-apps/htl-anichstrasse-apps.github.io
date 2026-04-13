@@ -23,12 +23,12 @@
             <strong>HTLinn Go</strong><br>
             HTL Anichstraße – die offizielle Schul-App.
             <div class="badge-container">
-                <a href="https://htl-anichstrasse-apps.github.io/go.html?app=htlinn-go">
-                    <img class="badge-apple" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de?size=250x83" alt="Download on the App Store">
-                </a>
-                <a href="https://htl-anichstrasse-apps.github.io/go.html?app=htlinn-go">
-                    <img class="badge-google" src="https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png" alt="Jetzt bei Google Play">
-                </a>
+                <div class="badge-link-group">
+                    <a class="badge-link" href="https://htl-anichstrasse-apps.github.io/go.html?app=htlinn-go" data-qr="true" aria-label="HTLinn Go im Store öffnen">
+                        <img class="badge-apple" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de?size=250x83" alt="Download on the App Store">
+                        <img class="badge-google" src="https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png" alt="Jetzt bei Google Play">
+                    </a>
+                </div>
             </div>
         </li>
     </ul>
@@ -45,9 +45,6 @@
                     
                 <img class="badge-google badge-coming-soon" src="https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png" 
                     alt="Noch nicht bei Google Play" >
-                <a href="https://htl-anichstrasse-apps.github.io/go.html?app=htlinn-go">
-
-                </a>
             </div>
         </li>
     </ul>
@@ -68,8 +65,29 @@
     Diese Informationen gelten für alle unter dem Account der HTL Anichstraße veröffentlichten Apps.
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
 <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    document.querySelectorAll(".badge-link[data-qr='true']").forEach(function (link) {
+        var qrWrapper = document.createElement("div");
+        qrWrapper.className = "app-qr";
+        qrWrapper.setAttribute("aria-label", "QR-Code für Store-Link");
+        link.parentElement.appendChild(qrWrapper);
+
+        QRCode.toCanvas(link.href, {
+            width: 132,
+            margin: 1,
+            color: {
+                dark: "#003C8B",
+                light: "#FFFFFF"
+            }
+        }, function (error, canvas) {
+            if (!error) {
+                qrWrapper.appendChild(canvas);
+            }
+        });
+    });
 </script>
 
 </body>
