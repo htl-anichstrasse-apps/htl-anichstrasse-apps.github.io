@@ -73,6 +73,12 @@ a:hover {
     height: auto;
 }
 
+.section-divider {
+    border: none;
+    border-top: 2px solid #eee;
+    margin: 30px 0;
+}
+
 /* App badges */
 .app-list {
     list-style: none;
@@ -170,25 +176,25 @@ a:hover {
     }
 
     .badge-container {
-        gap: 12px;
+        gap: 16px;
     }
 
     .badge-link {
-        height: 44px;
+        height: 54px;
     }
 
     .badge-apple {
-        height: 36px;
+        height: 44px;
     }
 
     .badge-google {
-        height: 46px;
+        height: 57px;
     }
 
     .badge-qr-wrapper img {
-        width: 88px;
-        height: 88px;
-        max-width: 88px;
+        width: 110px;
+        height: 110px;
+        max-width: 110px;
     }
 }
 
