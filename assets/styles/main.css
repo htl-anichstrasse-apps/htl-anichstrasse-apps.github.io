@@ -65,12 +65,76 @@ a:hover {
 }
 
 .site-header {
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .site-logo {
-    max-width: 280px;
+    max-width: 200px;
     height: auto;
+}
+
+/* Burger menu */
+.burger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.burger-btn span {
+    display: block;
+    height: 3px;
+    background: #003C8B;
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.burger-btn.is-open span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.burger-btn.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-btn.is-open span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+.main-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.25s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.main-nav.is-open {
+    max-height: 200px;
+    border-bottom-color: #eee;
+    margin-bottom: 16px;
+}
+
+.main-nav a {
+    padding: 10px 4px;
+    font-size: 1em;
+    font-weight: 500;
+    color: #003C8B;
+    border-top: 1px solid #eee;
+}
+
+.main-nav a:hover {
+    background: #f4f7f6;
 }
 
 .section-divider {

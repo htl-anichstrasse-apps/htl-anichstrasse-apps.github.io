@@ -12,7 +12,16 @@
 <div class="content-box">
     <header class="site-header">
         <img class="site-logo" src="/assets/images/htl-anichstrasse-logo.svg" alt="HTL Anichstraße Logo" />
+        <button class="burger-btn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
+            <span></span><span></span><span></span>
+        </button>
     </header>
+
+    <nav class="main-nav" id="main-nav" aria-hidden="true">
+        <a href="/">Home</a>
+        <a href="/datenschutz/">Datenschutzerklärung</a>
+        <a href="/support/">Support</a>
+    </nav>
 
     <h1>App-Projekte der HTL Anichstraße</h1>
     <p>Willkommen auf dem offiziellen App-Portal der HTL Anichstraße. Hier finden Sie Informationen zu unseren mobilen Applikationen, die im Rahmen von Unterrichts- und Schülerprojekten entwickelt wurden.</p>
@@ -81,6 +90,15 @@
 
 <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    var burgerBtn = document.querySelector(".burger-btn");
+    var mainNav = document.getElementById("main-nav");
+    burgerBtn.addEventListener("click", function () {
+        var isOpen = mainNav.classList.toggle("is-open");
+        burgerBtn.classList.toggle("is-open", isOpen);
+        burgerBtn.setAttribute("aria-expanded", isOpen);
+        mainNav.setAttribute("aria-hidden", !isOpen);
+    });
 
     document.querySelectorAll(".badge-link[data-qr='true']").forEach(function (link) {
         var qrSize = 104;
