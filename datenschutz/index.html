@@ -84,9 +84,13 @@
 </div>
 
 <footer>
-    &copy; 2026 HTL Anichstraße, Innsbruck<br>
+    &copy; <span id="current-year"></span> HTL Anichstraße, Innsbruck<br>
     Diese Erklärung gilt für alle unter dem Account der Schule veröffentlichten Apps.
 </footer>
+
+<script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

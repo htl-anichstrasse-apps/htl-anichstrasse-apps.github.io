@@ -50,7 +50,6 @@
         <li><strong>Die App startet nicht oder stürzt ab:</strong> Bitte stellen Sie sicher, dass Ihr Betriebssystem auf dem aktuellen Stand ist. Versuchen Sie, die App zu deinstallieren und erneut zu installieren.</li>
         <li><strong>Die App enthält einen Fehler oder funktioniert nicht wie erwartet:</strong> Da es sich um Schulprojekte handelt, können wir keinen professionellen Support-Level garantieren. Wir nehmen Fehlerhinweise jedoch gerne entgegen.</li>
         <li><strong>Ich möchte eine Funktion vorschlagen:</strong> Kontaktieren Sie uns per E-Mail. Wir leiten Ihr Feedback gerne an die jeweiligen Schülerteams weiter.</li>
-        <li><strong>Meine Daten wurden gespeichert – wie kann ich sie löschen?</strong> Alle App-Daten werden ausschließlich lokal auf Ihrem Gerät gespeichert. Sie können diese über die Geräteeinstellungen löschen oder die App deinstallieren.</li>
     </ul>
 
     <h2>3. Kontakt</h2>
@@ -68,11 +67,15 @@
 </div>
 
 <footer>
-    &copy; 2026 HTL Anichstraße, Innsbruck<br>
+    &copy; <span id="current-year"></span> HTL Anichstraße, Innsbruck<br>
     <a href="https://htl-anichstrasse-apps.github.io/datenschutz/">Datenschutzerklärung</a> | 
     <a href="https://htlinn.ac.at/impressum">Impressum</a><br>
     Diese Seite gilt für alle unter dem Account der Schule veröffentlichten Apps.
 </footer>
+
+<script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
