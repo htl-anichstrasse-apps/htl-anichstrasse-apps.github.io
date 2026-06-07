@@ -1,9 +1,21 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=/de/support/">
-    <script>window.location.replace('/de/support/');</script>
+    <script>
+        (function () {
+            var saved = sessionStorage.getItem('lang-override');
+            var lang = saved || (navigator.language || navigator.userLanguage || 'en');
+            if (lang.startsWith('de')) {
+                window.location.replace('/de/support/');
+            } else {
+                window.location.replace('/en/support/');
+            }
+        })();
+    </script>
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=/en/support/">
+    </noscript>
 </head>
 <body>
 </body>
