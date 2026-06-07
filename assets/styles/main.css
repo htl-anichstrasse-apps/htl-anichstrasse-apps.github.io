@@ -88,8 +88,6 @@ a:hover {
     cursor: pointer;
     padding: 0;
     flex-shrink: 0;
-    position: relative;
-    top: -5px;
 }
 
 .burger-btn span {
@@ -264,6 +262,29 @@ a:hover {
     width: 124px;
     height: 124px;
     max-width: 124px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    top: -5px;
+}
+
+.lang-switcher {
+    font-size: 0.85em;
+    font-weight: 500;
+    white-space: nowrap;
+    color: #003C8B;
+}
+
+.lang-switcher a {
+    color: #003C8B;
+}
+
+.lang-switcher strong {
+    color: #003C8B;
 }
 
 @media (max-width: 480px) {

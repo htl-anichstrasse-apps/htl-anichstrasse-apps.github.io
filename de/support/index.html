@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="alternate" hreflang="de" href="https://htl-anichstrasse-apps.github.io/de/support/">
+    <link rel="alternate" hreflang="en" href="https://htl-anichstrasse-apps.github.io/en/support/">
+    <title>Support | HTL Anichstraße App-Projekte</title>
+</head>
+<body>
+
+<div class="content-box">
+    <header class="site-header">
+        <img class="site-logo" src="/assets/images/htl-anichstrasse-logo.svg" alt="HTL Anichstraße Logo" />
+        <div class="header-right">
+            <div class="lang-switcher">
+                <strong>DE</strong> | <a href="/en/support/" onclick="sessionStorage.setItem('lang-override','en')">EN</a>
+            </div>
+            <button class="burger-btn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="main-nav" id="main-nav" aria-hidden="true">
+        <a href="/de/">Home</a>
+        <a href="/de/datenschutz/">Datenschutzerklärung</a>
+        <a href="/de/support/">Support</a>
+    </nav>
+
+    <h1>App-Support</h1>
+    <p>Diese Seite bietet Unterstützung für alle mobilen Applikationen, die als Schüler- oder Schulprojekte der <strong>HTL Anichstraße</strong> veröffentlicht wurden.</p>
+
+    <h2>1. Über unsere Apps</h2>
+    <p>Bei den hier veröffentlichten Apps handelt es sich ausschließlich um <strong>nicht-kommerzielle Schüler- und Schulprojekte</strong> der HTL Anichstraße. Sie entstehen im Rahmen des Unterrichts und dienen Bildungs- und Übungszwecken. Es werden keine Gebühren erhoben und kein wirtschaftlicher Zweck verfolgt.</p>
+    <hr class="section-divider">
+
+    <h2>2. Häufige Fragen (FAQ)</h2>
+    <ul>
+        <li><strong>Die App startet nicht oder stürzt ab:</strong> Bitte stellen Sie sicher, dass Ihr Betriebssystem auf dem aktuellen Stand ist. Versuchen Sie, die App zu deinstallieren und erneut zu installieren.</li>
+        <li><strong>Die App enthält einen Fehler oder funktioniert nicht wie erwartet:</strong> Da es sich um Schulprojekte handelt, können wir keinen professionellen Support-Level garantieren. Wir nehmen Fehlerhinweise jedoch gerne entgegen.</li>
+        <li><strong>Ich möchte eine Funktion vorschlagen:</strong> Kontaktieren Sie uns per E-Mail. Wir leiten Ihr Feedback gerne an die jeweiligen Schülerteams weiter.</li>
+    </ul>
+    <hr class="section-divider">
+
+    <h2>3. Kontakt</h2>
+    <p>Bei Fragen, Problemen oder Feedback zu unseren Apps wenden Sie sich bitte per E-Mail an uns. Bitte geben Sie in Ihrer Nachricht den Namen der App an, damit wir Ihr Anliegen dem richtigen Projektteam zuordnen können.</p>
+    <div class="contact-info">
+        <strong>Höhere Technische Bundeslehr- und Versuchsanstalt Anichstraße</strong><br>
+        Anichstraße 26-28<br>
+        6020 Innsbruck, Österreich<br>
+        E-Mail: <a href="mailto:apps@htlinn.ac.at?subject=Supportanfrage%20App">apps@htlinn.ac.at</a><br>
+        Web: <a href="https://htlinn.ac.at" target="_blank">https://htlinn.ac.at</a>
+    </div>
+    <hr class="section-divider">
+
+    <h2>4. Hinweis zum Support-Umfang</h2>
+    <p>Da die Apps von Schülerinnen und Schülern im Rahmen des Unterrichts entwickelt werden, kann kein kommerzieller Support (z. B. garantierte Reaktionszeiten oder Service Level Agreements) angeboten werden. Wir bemühen uns jedoch, eingehende Anfragen zeitnah zu bearbeiten.</p>
+</div>
+
+<footer>
+    &copy; <span id="current-year"></span> HTL Anichstraße, Innsbruck<br>
+    <a href="/de/datenschutz/">Datenschutzerklärung</a> |
+    <a href="/de/support/">App-Support</a> |
+    <a href="https://htlinn.ac.at/impressum">Impressum</a><br>
+    Diese Informationen gelten für alle unter dem Account der HTL Anichstraße veröffentlichten Apps.
+</footer>
+
+<script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    var burgerBtn = document.querySelector(".burger-btn");
+    var mainNav = document.getElementById("main-nav");
+    burgerBtn.addEventListener("click", function () {
+        var isOpen = mainNav.classList.toggle("is-open");
+        burgerBtn.classList.toggle("is-open", isOpen);
+        burgerBtn.setAttribute("aria-expanded", isOpen);
+        mainNav.setAttribute("aria-hidden", !isOpen);
+    });
+</script>
+
+</body>
+</html>

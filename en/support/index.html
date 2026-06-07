@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="alternate" hreflang="de" href="https://htl-anichstrasse-apps.github.io/de/support/">
+    <link rel="alternate" hreflang="en" href="https://htl-anichstrasse-apps.github.io/en/support/">
+    <title>Support | HTL Anichstraße App Projects</title>
+</head>
+<body>
+
+<div class="content-box">
+    <header class="site-header">
+        <img class="site-logo" src="/assets/images/htl-anichstrasse-logo.svg" alt="HTL Anichstraße Logo" />
+        <div class="header-right">
+            <div class="lang-switcher">
+                <a href="/de/support/" onclick="sessionStorage.setItem('lang-override','de')">DE</a> | <strong>EN</strong>
+            </div>
+            <button class="burger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="main-nav" id="main-nav" aria-hidden="true">
+        <a href="/en/">Home</a>
+        <a href="/en/privacy/">Privacy Policy</a>
+        <a href="/en/support/">Support</a>
+    </nav>
+
+    <h1>App Support</h1>
+    <p>This page provides support for all mobile applications published as student or school projects of <strong>HTL Anichstraße</strong>.</p>
+
+    <h2>1. About Our Apps</h2>
+    <p>The apps published here are exclusively <strong>non-commercial student and school projects</strong> of HTL Anichstraße. They are developed as part of the curriculum and serve educational and training purposes. No fees are charged and no commercial purpose is pursued.</p>
+    <hr class="section-divider">
+
+    <h2>2. Frequently Asked Questions (FAQ)</h2>
+    <ul>
+        <li><strong>The app won't start or crashes:</strong> Please ensure your operating system is up to date. Try uninstalling and reinstalling the app.</li>
+        <li><strong>The app contains a bug or doesn't work as expected:</strong> As these are school projects, we cannot guarantee a professional level of support. However, we welcome bug reports.</li>
+        <li><strong>I'd like to suggest a feature:</strong> Contact us by email. We'll be happy to forward your feedback to the relevant student teams.</li>
+    </ul>
+    <hr class="section-divider">
+
+    <h2>3. Contact</h2>
+    <p>For questions, issues, or feedback about our apps, please contact us by email. Please include the name of the app in your message so we can forward your request to the correct project team.</p>
+    <div class="contact-info">
+        <strong>Höhere Technische Bundeslehr- und Versuchsanstalt Anichstraße</strong><br>
+        Anichstraße 26-28<br>
+        6020 Innsbruck, Austria<br>
+        Email: <a href="mailto:apps@htlinn.ac.at?subject=App%20Support%20Request">apps@htlinn.ac.at</a><br>
+        Web: <a href="https://htlinn.ac.at" target="_blank">https://htlinn.ac.at</a>
+    </div>
+    <hr class="section-divider">
+
+    <h2>4. Note on Support Scope</h2>
+    <p>Since the apps are developed by students as part of their curriculum, commercial support (e.g. guaranteed response times or service level agreements) cannot be offered. We do, however, endeavor to process incoming requests promptly.</p>
+</div>
+
+<footer>
+    &copy; <span id="current-year"></span> HTL Anichstraße, Innsbruck<br>
+    <a href="/en/privacy/">Privacy Policy</a> |
+    <a href="/en/support/">App Support</a> |
+    <a href="https://htlinn.ac.at/impressum">Impressum</a><br>
+    This information applies to all apps published under the HTL Anichstraße account.
+</footer>
+
+<script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    var burgerBtn = document.querySelector(".burger-btn");
+    var mainNav = document.getElementById("main-nav");
+    burgerBtn.addEventListener("click", function () {
+        var isOpen = mainNav.classList.toggle("is-open");
+        burgerBtn.classList.toggle("is-open", isOpen);
+        burgerBtn.setAttribute("aria-expanded", isOpen);
+        mainNav.setAttribute("aria-hidden", !isOpen);
+    });
+</script>
+
+</body>
+</html>
