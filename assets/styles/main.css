@@ -267,7 +267,7 @@ a:hover {
 .header-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 20px;
     position: relative;
     top: -5px;
 }
